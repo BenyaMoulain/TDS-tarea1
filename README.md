@@ -19,4 +19,7 @@ Python 3.9.1
 ## Instrucciones para iniciar programa
 
 Ejecutar en la raiz del proyecto:
+
+```bash
 python tarea1.py
+```

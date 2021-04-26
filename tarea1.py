@@ -1,9 +1,17 @@
+import logging
+
+logging.basicConfig(level=logging.DEBUG, filename="debug.log")
+logging.getLogger().addHandler(logging.StreamHandler())
+logging.info("Inicio del programa")
+
 kSpecialChar = "-"
 
+
 inputString = input("Ingrese la cadena a comprimir: ")
-print(inputString)
+logging.info("Cadena ingresada: {string}".format(string=inputString))
 
 if "-" in inputString:
+    logging.error("La cadena ingresada contiene un \"-\"")
     raise ValueError("Ingresaste el caracter especial reservado '-'")
 if len(inputString) == 0:
     raise ValueError("Ingresaste una cadena vacía")
@@ -23,7 +31,8 @@ for charIndex in range(len(inputString)):
         repetitions += 1
 
     if isNotFirstChar and (isDifferentChar or isLastChar):
-        print(repetitions, savedChar)
+        logging.info("Se encontraron {repetitions} repeticiones del caracter '{character}''.".format(
+            repetitions=repetitions, character=savedChar))
         if savedChar.isnumeric():
             savedChar = "{separator}{character}{separator}".format(
                 character=savedChar, separator=kSpecialChar)
@@ -32,7 +41,8 @@ for charIndex in range(len(inputString)):
         repetitions = 1
 
     if (isDifferentChar and isLastChar):
-        print(repetitions, char)
+        logging.info("Se encontraron {repetitions} repeticiones del caracter '{character}''.".format(
+            repetitions=repetitions, character=char))
         if char.isnumeric():
             char = "{separator}{character}{separator}".format(
                 character=char, separator=kSpecialChar)
@@ -40,8 +50,12 @@ for charIndex in range(len(inputString)):
             character=char, repetitions=repetitions)
     savedChar = char
 
-print(len(compressedString), len(inputString))
+logging.info("El largo de la cadena original es: {len}.".format(
+    len=len(inputString)))
+logging.info("El largo de la cadena comprimida es: {len}.".format(
+    len=len(compressedString)))
 result = compressedString if len(
     compressedString) < len(inputString) else inputString
+logging.info("La cadena devuelta es: {string}".format(string=result))
 
-print(result)
+logging.info("Fin del programa\n")

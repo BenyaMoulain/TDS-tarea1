@@ -10,12 +10,6 @@ Los logs del programa son guardados en el archivo debug.log
 
 Python 3.9.1
 
-## Ejemplos de uso
-
-- Entrada: aabcccccaaa, Salida: a2b1c5a3
-- Entrada: aabcccccaaa1111, Salida: a2b1c5a3-1-4
-- Entrada: aabc, salida: aabc
-
 ## Instrucciones para iniciar programa
 
 Ejecutar en la raiz del proyecto:
@@ -23,3 +17,9 @@ Ejecutar en la raiz del proyecto:
 ```bash
 python tarea1.py
 ```
+
+## Ejemplos de uso
+
+- Entrada: aabcccccaaa, Salida: a2b1c5a3
+- Entrada: aabcccccaaa1111, Salida: a2b1c5a3-1-4
+- Entrada: aabc, salida: aabc
